@@ -32,27 +32,36 @@
 
         <div class="content">
             <div class='title'>
-                Colleges
+                Manage Colleges
             </div>
             <div class='form'>
                 <form method='post'>
                     <div class='input_field'>
                         <label>College Name</label>
-                        <input type="text" name="college-name" class="input">
+                        <input type="text" name="college-name" class="input"><br><br>
+                        <label>College ID</label>
+                        <input type="text" name="college-id" class="input"><br><br>
+                        <label>Unit ID</label>
+                        <input type="text" name="unit-id" class="input"><br><br>
+                        <label>Co-ordinator Name</label>
+                        <input type="text" name="coordinator-name" class="input"><br><br>
+                        <label>Contact No</label>
+                        <input type="number" name="contact" class="input"><br><br>
                     </div>
                     <div class='input_field'>
-                        <input type="submit" name="manage" class="button" id='manage' value='Manage'>
-                        <input type="submit" name="search" class="button" id='search' value='Search'>
+                        <input type="submit" name="add" class="button" id='add' value='Add'>
+                        <input type="submit" name="edit" class="button" id='edit' value='Edit'>
+                        <input type="submit" name="delete" class="button" id='delete' value='Delete'>
+                        <input type="submit" name="back" class="button" id='back' value='Back'>
                     </div>
                 </form>
             </div>
         </div>
 
         <?php
-            if(isset($_POST['manage'])){
-                header('Location: college-manage.php');
+            if(isset($_POST['back'])){
+                header('Location: colleges.php');
             }
-
         ?>
     </body>
 </html>

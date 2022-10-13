@@ -19,11 +19,11 @@
             <ul>
                 <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="colleges.php">Colleges</a></li>
-                <li><a href="members.php">Members</a></li>
-                <li><a href="#">Enrollment</a></li>
-                <li><a href="#">Enroll Applications</a></li>
+                <li><a href="cordinators.php">Co-ordinators</a></li>
+                <li><a href="students.php">Students</a></li>
+                <li><a href="#">Student Applications</a></li>
                 <li><a href="#">Events</a></li>
-                <li><a href="#">Fund Management</a></li>
+                <li><a href="#">Payments</a></li>
                 <li><a href="#">Camps</a></li>
                 <li><a href="#">Certificates</a></li>
             </ul>

@@ -10,7 +10,7 @@
                 <ul>
                     <li><a href="dashboard.php">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="index.php">Log Out</a></li>
+                    <li><a href="login.php">Log Out</a></li>
                 </ul>
             </nav>
         </div>
@@ -20,11 +20,11 @@
             <ul>
                 <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="colleges.php">Colleges</a></li>
-                <li><a href="members.php">Members</a></li>
-                <li><a href="#">Enrollment</a></li>
-                <li><a href="#">Enroll Applications</a></li>
+                <li><a href="cordinators.php">Co-ordinators</a></li>
+                <li><a href="students.php">Students</a></li>
+                <li><a href="#">Student Applications</a></li>
                 <li><a href="#">Events</a></li>
-                <li><a href="#">Fund Management</a></li>
+                <li><a href="#">Payments</a></li>
                 <li><a href="#">Camps</a></li>
                 <li><a href="#">Certificates</a></li>
             </ul>
@@ -41,8 +41,8 @@
                         <input type="text" name="college-name" class="input"><br><br>
                         <label>College ID</label>
                         <input type="text" name="college-id" class="input"><br><br>
-                        <label>Unit ID</label>
-                        <input type="text" name="unit-id" class="input"><br><br>
+                        <label>Location</label>
+                        <input type="text" name="location" class="input"><br><br>
                         <label>Co-ordinator Name</label>
                         <input type="text" name="coordinator-name" class="input"><br><br>
                         <label>Contact No</label>
@@ -59,8 +59,66 @@
         </div>
 
         <?php
+
+            include('config.php');
+            include('debug.php');
+
             if(isset($_POST['back'])){
                 header('Location: colleges.php');
+            }
+            if(isset($_POST['add'])){
+
+                $collegename=$_POST['college-name'];
+                $collegeid=$_POST['college-id'];
+                $location=$_POST['location'];
+                $coordinatorname=$_POST['coordinator-name'];
+                $contact=$_POST['contact'];
+
+                
+
+                if(!$collegename || !$collegeid|| !$location|| !$coordinatorname|| !$contact) echo "<script>alert('Insufficient Details')</script>";
+                else{
+                    $sql="insert into colleges values('$collegename','$collegeid','$location','$coordinatorname',$contact);";
+                    if(mysqli_query($conn,$sql)){
+                        echo "<script>alert('College Added')</script>";
+                    } 
+                    else{
+                        echo "<script>alert('Database Error')</script>"; 
+                    } 
+                }
+            }
+            if(isset($_POST['edit'])){
+
+                $collegename=$_POST['college-name'];
+                $collegeid=$_POST['college-id'];
+                $location=$_POST['location'];
+                $coordinatorname=$_POST['coordinator-name'];
+                $contact=$_POST['contact'];
+
+                if(!$collegename || !$collegeid|| !$location|| !$coordinatorname|| !$contact) echo "<script>alert('Insufficient Details')</script>";
+                else{
+                    $sql="update colleges set collegename='$collegename',address='$location',cordname='$coordinatorname',contact=$contact where collegeid='$collegeid'";
+                    if(mysqli_query($conn,$sql)){
+                        echo "<script>alert('Edit Successful')</script>";
+                    } 
+                    else{
+                        echo "<script>alert('Database Error')</script>"; 
+                    }
+                } 
+            }
+            if(isset($_POST['delete'])){
+
+                $collegeid=$_POST['college-id'];
+                if(!$collegeid) echo "<script>alert('Insufficient Details')</script>";
+                else{
+                    $sql="delete from colleges where collegeid='$collegeid'";
+                    if(mysqli_query($conn,$sql)){
+                        echo "<script>alert('College Deleted')</script>";
+                    } 
+                    else{
+                        echo "<script>alert('Database Error')</script>"; 
+                    }
+                } 
             }
         ?>
     </body>

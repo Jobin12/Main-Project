@@ -32,13 +32,13 @@
 
         <div class="content">
             <div class='title'>
-                Colleges
+                Co-ordinators
             </div>
             <div class='form'>
                 <form method='post'>
                     <div class='input_field'>
-                        <label>College Name</label>
-                        <input type="text" name="college-name" class="input">
+                        <label>Co-ordinator Name</label>
+                        <input type="text" name="name" class="input">
                     </div>
                     <div class='input_field'>
                         <input type="submit" name="manage" class="button" id='manage' value='Manage'>
@@ -49,34 +49,37 @@
         </div>
 
         <?php
-
             include('config.php');
 
             if(isset($_POST['manage'])){
-                header('Location: college-manage.php');
+                header('Location: cord-manage.php');
             }
 
             if(isset($_POST['search'])){
-                $collegename=$_POST['college-name'];
-                if(!$collegename) echo("<script>alert('Enter College Name')</script>");
+                $name=$_POST['name'];
+                if(!$name) echo("<script>alert('Enter College Name')</script>");
                 else{
-                    $sql="select * from colleges where collegename='$collegename'";
+                    $sql="select * from cordinator where username='$name'";
                     $result=mysqli_query($conn,$sql);
                     if(mysqli_num_rows($result)>0){
                         echo "<table class='data' width = '800'>";
                         echo "<tr>";
-                        echo "<th>College ID</th>";
-                        echo "<th>College Name</th>";
+                        echo "<th>ID</th>";
+                        echo "<th>Name</th>";
+                        echo "<th>Email</th>";
+                        echo "<th>College</th>";
                         echo "<th>Address</th>";
-                        echo "<th>Co-ordinator Name</th>";
+                        echo "<th>Gender</th>";
                         echo "<th>Contact No.</th></tr>";
                         while($row = mysqli_fetch_assoc($result)){
                             echo "<tr>";
-                            echo "<td>".$row['collegeid']."</td>";
-                            echo "<td>".$row['collegename']."</td>";
+                            echo "<td>".$row['id']."</td>";
+                            echo "<td>".$row['username']."</td>";
+                            echo "<td>".$row['email']."</td>";
+                            echo "<td>".$row['college']."</td>";
                             echo "<td>".$row['address']."</td>";
-                            echo "<td>".$row['cordname']."</td>";
-                            echo "<td>".$row['contact']."</td></tr>";
+                            echo "<td>".$row['gender']."</td>";
+                            echo "<td>".$row['mobile']."</td></tr>";
                         }
                         echo "</table>";
                     }
@@ -84,28 +87,31 @@
                 }
             }
             else{
-                $sql="select * from colleges";
+                $sql="select * from cordinator";
                 $result=mysqli_query($conn,$sql);
                 if(mysqli_num_rows($result)>0){
                     echo "<table class='data' width = '800'>";
                     echo "<tr>";
-                    echo "<th>College ID</th>";
-                    echo "<th>College Name</th>";
+                    echo "<th>ID</th>";
+                    echo "<th>Name</th>";
+                    echo "<th>Email</th>";
+                    echo "<th>College</th>";
                     echo "<th>Address</th>";
-                    echo "<th>Co-ordinator Name</th>";
+                    echo "<th>Gender</th>";
                     echo "<th>Contact No.</th></tr>";
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<tr>";
-                        echo "<td>".$row['collegeid']."</td>";
-                        echo "<td>".$row['collegename']."</td>";
+                        echo "<td>".$row['id']."</td>";
+                        echo "<td>".$row['username']."</td>";
+                        echo "<td>".$row['email']."</td>";
+                        echo "<td>".$row['college']."</td>";
                         echo "<td>".$row['address']."</td>";
-                        echo "<td>".$row['cordname']."</td>";
-                        echo "<td>".$row['contact']."</td></tr>";
+                        echo "<td>".$row['gender']."</td>";
+                        echo "<td>".$row['mobile']."</td></tr>";
                     }
                     echo "</table>";
                 }
             }
-
         ?>
     </body>
 </html>

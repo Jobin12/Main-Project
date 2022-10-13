@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="styles/login.css">
   </head>
   <body>
+  <?php
+    include('config.php');
+  ?>
   <div id="container" class="container">
   <!-- FORM SECTION -->
   <form method="post">
@@ -28,9 +31,23 @@
             <i class='bx bxs-user'></i>
             <input type="number" placeholder="Mobile Number" name='mobile'>
           </div>
-          <div class="input-group">
+          <!-- <div class="input-group">
             <i class='bx bxs-user'></i>
             <input type="text" placeholder="College" name='college'>
+          </div> -->
+          <div class="input-group" id="college-div">
+            <i class='bx bxs-user'></i>
+            <select name="college" id="college">
+              <option value="" disabled selected hidden>College</option>
+              <?php
+                $sql="select collegename from colleges;";
+                $result=mysqli_query($conn,$sql);
+                while($row = mysqli_fetch_assoc($result)){
+                  $clgname=$row['collegename'];
+                  echo "<option value='$clgname'>".$row['collegename']."</option>";
+                }
+              ?>
+            </select>
           </div>
           <div class="input-group" id="address">
             <i class='bx bxs-user'></i>
@@ -38,7 +55,7 @@
           </div>
           <div class="input-group" id="gender-div">
             <i class='bx bxs-user'></i>
-            <select name="gender" id="gender" name='gender'>
+            <select name="gender" id="gender">
               <option value="" disabled selected hidden>Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -49,10 +66,6 @@
             <i class='bx bxs-lock-alt'></i>
             <input type="password" placeholder="Password" name='reg-pass'>
           </div>
-          <!-- <div class="input-group">
-            <i class='bx bxs-lock-alt'></i>
-            <input type="password" placeholder="Confirm password">
-          </div> -->
           <button name='register'>
             Sign up
           </button>
@@ -79,9 +92,9 @@
             <i class='bx bxs-user'></i>
             <select name="user-type" id="gender" name='user-type'>
               <option value="" disabled selected hidden>User Type</option>
-              <option value="male">Admin</option>
-              <option value="female">Co-ordinator</option>
-              <option value="other">Student</option>
+              <option value="admin">Admin</option>
+              <option value="cordinator">Co-ordinator</option>
+              <option value="student">Student</option>
             </select>
           </div>
           <div class="input-group">
@@ -150,20 +163,9 @@
 
   <?php
 
-    function debug_to_console($data) {
-      $output = $data;
-      if (is_array($output))
-          $output = implode(',', $output);
-
-      echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-    }
-
-    $error_file=fopen("errorfile.txt","w") or die();
-
-
     session_start();
-    function login($conn,$email,$password){
-      $sql = "select * from users where email = '$email'";
+    function login($conn,$email,$password,$usertype){
+      $sql = "select * from $usertype where email = '$email'";
           $result = mysqli_query($conn,$sql);
           if(mysqli_num_rows($result) > 0){
               while($row = mysqli_fetch_assoc($result)){
@@ -181,19 +183,16 @@
           return false;
   }
 
-    include('config.php');
-
-    $conn = mysqli_connect($serverName,$userName,$password,$db);
-    if(!$conn) die("Connection Error : ".mysqli_connect_error());
 
     if(isset($_POST['signin'])){
       $email=$_POST['email'];
       $password=$_POST['pass'];
+      $usertype=$_POST['user-type'];
 
-      if(!$email || !$password) echo "<script>alert('Insufficient Details')</script>";
+      if(!$email || !$password || !$usertype) echo "<script>alert('Insufficient Details')</script>";
       else{
-        if(login($conn,$email,$password)){
-          echo "<script>window.location.href='dashboard.php';</script>";
+        if(login($conn,$email,$password,$usertype)){
+          if($usertype=="admin") echo "<script>window.location.href='dashboard.php';</script>";
           exit();
         }
       }
@@ -213,22 +212,16 @@
         echo "<script>alert('Insufficient Details')</script>";
       }
       else{
-        $sql = "insert into users values('$email','$username','$id',$mobile,'$college','$address','$gender','$password')";
+        $sql = "insert into student values('$email','$username','$id',$mobile,'$college','$address','$gender','$password',0)";
         if(mysqli_query($conn,$sql)){
-          echo "<script>alert('Registration Successful')</script>";
-
+          echo "<script>alert('Request Submitted. Waiting for Approval')</script>";
         } 
         else{
-          debug_to_console(mysqli_error($conn));
-          echo "<script>alert('Database Error')</script>";
-          
-        } 
-
+          echo "<script>alert('Database Error')</script>";  
+        }
         exit();
       }
     }
-
-
 
   ?>
   </body>

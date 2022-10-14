@@ -17,7 +17,7 @@
         <div class='sidebar'>
             <h1>NSS Portal</h1>
             <ul>
-                <li><a href="dashboard.php">Dashboard</a></li>
+                <li class='current'><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="colleges.php">Colleges</a></li>
                 <li><a href="cordinators.php">Co-ordinators</a></li>
                 <li><a href="students.php">Students</a></li>

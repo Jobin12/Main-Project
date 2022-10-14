@@ -31,6 +31,15 @@ h1{
     padding-left: 70px;
 }
 
+.sidebar ul .current{
+    background-color: #4ea685;
+}
+
+.sidebar ul .current a{
+    color: white;
+    font-size: 1.2em;
+}
+
 .sidebar ul li:hover{
     background-color: #4ea685;
     cursor: pointer;
@@ -145,7 +154,7 @@ nav ul li a:hover{
     color:white;
     transition: 0.2s;
 }
-
+/* 
 .data{
     font-family: sans-serif;
     table-layout: fixed;
@@ -186,4 +195,45 @@ nav ul li a:hover{
     border-top-right-radius: 5px;
 }
 
+ */
 
+ .data{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    min-width: 400px;
+    margin-left:25%;
+    margin-top:55px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    width:72%;
+ }
+
+ .data tr th{
+    background-color: #009879;
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+ }
+
+ .data th,
+ .data td{
+    padding: 12px 15px;
+ }
+
+.data td{
+    padding: 20px;
+}
+
+ .data tr td{
+    border-bottom: 1px solid #dddddd;
+ }
+
+ .data tr:nth-of-type(odd){
+    background-color:#f3f3f3;
+ }
+
+ .data tr:last-of-type{
+    border-bottom: 3px solid #009879;
+ }

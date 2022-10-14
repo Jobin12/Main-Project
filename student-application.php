@@ -14,6 +14,31 @@
                 background-color: white;
                 font-family: sans-serif;
             }
+
+            .approve,
+            .deny{
+                width:80px;
+                height:30px;
+                margin:5px;
+                color:white;
+                border-radius:5px;
+                border:0;
+            }
+
+            .approve:hover,
+            .deny:hover{
+                cursor: pointer;
+                box-shadow: 0 0 9px gray;
+            }
+
+            .approve{
+                background-color:#32a852;
+            }
+
+            .deny{
+                background-color: #d94343;
+            }
+
         </style>
     </head>
     <body>
@@ -35,7 +60,7 @@
                 <li><a href="colleges.php">Colleges</a></li>
                 <li><a href="cordinators.php">Co-ordinators</a></li>
                 <li><a href="students.php">Students</a></li>
-                <li><a href="student-application.php">Student Applications</a></li>
+                <li class='current'><a href="student-application.php">Student Applications</a></li>
                 <li><a href="#">Events</a></li>
                 <li><a href="#">Payments</a></li>
                 <li><a href="#">Camps</a></li>
@@ -63,8 +88,10 @@
                 echo "<th>College</th>";
                 echo "<th>Address</th>";
                 echo "<th>Gender</th>";
-                echo "<th>Contact No.</th></tr>";
+                echo "<th>Contact No.</th>";
+                echo "<th>Access</th></tr>";
                 while($row = mysqli_fetch_assoc($result)){
+                    $email=$row['email'];
                     echo "<tr>";
                     echo "<td>".$row['id']."</td>";
                     echo "<td>".$row['username']."</td>";
@@ -72,9 +99,31 @@
                     echo "<td>".$row['college']."</td>";
                     echo "<td>".$row['address']."</td>";
                     echo "<td>".$row['gender']."</td>";
-                    echo "<td>".$row['mobile']."</td></tr>";
+                    echo "<td>".$row['mobile']."</td>";
+                    echo "<td><form method='post'><input type='hidden' name='email' value='$email'><input type='submit' name='approve' class='approve' value='Approve'><br><input type='submit' class='deny' name='deny' value='Deny'></form></td></tr>";
                 }
                 echo "</table>";
+
+                if(isset($_POST['approve'])){
+                    $useremail=$_POST['email'];
+                    $sql="update student set access=1 where email='$useremail'";
+                    if(mysqli_query($conn,$sql)){
+                        echo("<script>alert('Student Approved');window.location.href='student-application.php';</script>");
+                    }
+                    else{
+                        echo("<script>alert('Database Error');</script>");
+                    }
+                }
+                if(isset($_POST['deny'])){
+                    $useremail=$_POST['email'];
+                    $sql="delete from student where email='$useremail'";
+                    if(mysqli_query($conn,$sql)){
+                        echo("<script>alert('Student Deleted');window.location.href='student-application.php';</script>");
+                    }
+                    else{
+                        echo("<script>alert('Database Error');</script>");
+                    }
+                }
             }
         ?>
     </body>

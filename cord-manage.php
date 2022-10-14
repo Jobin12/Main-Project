@@ -24,7 +24,7 @@
             <ul>
                 <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="colleges.php">Colleges</a></li>
-                <li><a href="cordinators.php">Co-ordinators</a></li>
+                <li class='current'><a href="cordinators.php">Co-ordinators</a></li>
                 <li><a href="students.php">Students</a></li>
                 <li><a href="student-application.php">Student Applications</a></li>
                 <li><a href="#">Events</a></li>

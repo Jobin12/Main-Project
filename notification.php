@@ -17,13 +17,13 @@
         <div class='sidebar'>
             <h1>NSS Portal</h1>
             <ul>
-                <li class='current'><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="colleges.php">Colleges</a></li>
                 <li><a href="cordinators.php">Co-ordinators</a></li>
                 <li><a href="students.php">Students</a></li>
                 <li><a href="student-application.php">Student Applications</a></li>
                 <li><a href="gallery.php">Gallery</a></li>
-                <li><a href="notification.php">Notifications</a></li>
+                <li class='current'><a href="notification.php">Notifications</a></li>
                 <li><a href="payment.php">Payments</a></li>
                 <li><a href="#">Camps</a></li>
             </ul>

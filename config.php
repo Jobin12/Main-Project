@@ -1,7 +1,7 @@
 <?php
-    $serverName = 'localhost:8111';
+    $serverName = 'localhost';
     $userName = 'root';
-    $password = 'password';
+    $password = '';
     $db = 'nss_portal';
 
     $conn = mysqli_connect($serverName,$userName,$password,$db);

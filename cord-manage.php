@@ -27,10 +27,10 @@
                 <li class='current'><a href="cordinators.php">Co-ordinators</a></li>
                 <li><a href="students.php">Students</a></li>
                 <li><a href="student-application.php">Student Applications</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Payments</a></li>
+                <li><a href="gallery.php">Gallery</a></li>
+                <li><a href="notification.php">Notifications</a></li>
+                <li><a href="payment.php">Payments</a></li>
                 <li><a href="#">Camps</a></li>
-                <li><a href="#">Certificates</a></li>
             </ul>
         </div> 
 

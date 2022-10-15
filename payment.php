@@ -30,13 +30,14 @@
                 color:white;
                 border-radius:5px;
                 border:0;
-                background-color:brown;
+                background-color:orangered;
                 text-shadow: 0.5px 0.5px black;
             }
 
             #content .buttons button:hover{
                 cursor: pointer;
                 box-shadow: 0 0 9px gray;
+                background-color:brown;
             }
 
             .edit,

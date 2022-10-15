@@ -2,6 +2,7 @@
     <head>
         <title>NSS Portal</title>
         <link rel="stylesheet" href="styles/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="images/nss-symbol.png">
     </head>
     <body>
         <div class='navbar'>
@@ -15,7 +16,8 @@
         </div>
 
         <div class='sidebar'>
-            <h1>NSS Portal</h1>
+            <!-- <img src="images/nss-symbol.png" width="40" height="40"> -->
+            <h1><img src="images/nss-symbol.png" width="40" height="40"> NSS Portal</h1>
             <ul>
                 <li class='current'><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="colleges.php">Colleges</a></li>

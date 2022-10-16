@@ -5,34 +5,41 @@
 
 body{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color:aliceblue;
 }
 
 h1{
     color: white;
+    padding-top: 11px;
     padding-bottom: 15px;
     text-align: center;
-    background-color:#4ea685;
-    text-shadow: 0.5px 0.5px black;
+    background-color: #009879;
+    text-shadow: 0 0 20px rgba(0,0,0,0.15);
     margin-top:-5;
 }
+
+
+
 .sidebar{
     position: fixed;
     left: 0;
     top: 0;
     width: 20vw;
     height: 100vh;
-    box-shadow: 0 0 20px lightgray;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
     z-index: 1;
-} 
+    background-color: white;
+}
 
 .sidebar ul li{
     padding: 20px;
-    padding-left: 70px;
+    padding-left: 70px;  
 }
 
 .sidebar ul .current{
-    background-color: #4ea685;
+    background-color: #009879;
 }
+
 
 .sidebar ul .current a{
     color: white;
@@ -40,7 +47,7 @@ h1{
 }
 
 .sidebar ul li:hover{
-    background-color: #4ea685;
+    background-color: #009879;
     cursor: pointer;
     transition: 0.5s;
 }
@@ -61,7 +68,7 @@ nav{
     height: 60px;
     width:80vw;
     padding-left: 20vw;
-    box-shadow: 0 0 20px lightgray;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
     background-color: white;
 }
 
@@ -84,7 +91,7 @@ nav ul li a{
 }
 
 nav ul li a:hover{
-    color: #4ea685;
+    color: #009879;
 }
 
 .content{
@@ -94,14 +101,16 @@ nav ul li a:hover{
     padding:30px;
     margin-top: 130px;
     margin-left: 42vw;
-    box-shadow: 0 0 20px lightgray;
+    box-shadow: 0 0 10px lightblue;
+    background-color: white;
+    border-radius:10px;
 }
 
 .content .title{
     font-size: 24px;
     font-weight: 700;
     font-family: sans-serif;
-    color:#4ea685;
+    color:#009879;
     margin-bottom: 25px;
     text-transform: uppercase;
     text-align: center;
@@ -135,7 +144,7 @@ nav ul li a:hover{
 }
 
 .content .form .input_field .input:focus{
-    border: 1px solid #4ea685;
+    border: 1px solid #009879;
 }
 
 .content .form .input_field .button{
@@ -149,7 +158,7 @@ nav ul li a:hover{
 }
 
 .content .form .input_field .button:hover{
-    background-color: #4ea685;
+    background-color: #009879;
     color:white;
     transition: 0.2s;
 }
@@ -205,8 +214,9 @@ nav ul li a:hover{
     margin-top:55px;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    box-shadow: 0 0 10px lightblue;
     width:72%;
+    background-color: white;
  }
 
  .data tr th{

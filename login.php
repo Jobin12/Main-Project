@@ -2,6 +2,7 @@
   <head>
     <title>NSS Portal</title>
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/nss-symbol.png">
   </head>
   <body>
   <?php

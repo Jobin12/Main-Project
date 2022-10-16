@@ -1,0 +1,70 @@
+.dash-container1,
+.dash-container2,
+.dash-container3{
+    display: flex;
+}
+
+.dash{
+    width: 300px;
+    height:180px;
+    box-shadow: 0 0 10px lightblue;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+.dash h3{
+    padding-top:18px;
+    padding-left: 20px;
+    padding-bottom:7px;
+    font-size: 30px;
+    color:darkblue;
+}
+
+.dash h5{
+    margin-left: 150px;
+    font-size:100px;
+    margin-top:-20px;
+    color:teal;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#college-dash{
+    margin-left:25%;
+    margin-top:7%;
+}
+
+#cordinator-dash{
+    margin-top:7%;
+    margin-left:7%;
+}
+
+#student-dash{
+    margin-top: 7%;
+    margin-left: 7%;
+}
+
+#std-app-dash{
+    margin-top: 5%;
+    margin-left: 25%;
+}
+
+#gallery-dash{
+    margin-left:7%;
+    margin-top:5%;
+}
+
+#notification-dash{
+    margin-left: 7%;
+    margin-top:5%;
+}
+
+#payment-dash{
+    margin-left:25%;
+    margin-top:5%;
+}
+
+#camp-dash{
+    margin-left: 7%;
+    margin-top:5%;
+}

@@ -2,6 +2,7 @@
     <head>
         <title>NSS Portal</title>
         <link rel="stylesheet" href="styles/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="images/nss-symbol.png">
         <style>
             #content{
                 max-width: 71vw;
@@ -11,7 +12,6 @@
                 margin-top: 60px;
                 margin-left: 20vw;
                 /* box-shadow: 0 0 20px lightgray; */
-                background-color: white;
                 font-family: sans-serif;
 
             }
@@ -72,6 +72,7 @@
             <nav>
                 <ul>
                     <li><a href="dashboard.php">Home</a></li>
+                    <li><a href="profile.php">Profile</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="login.php">Log Out</a></li>
                 </ul>
@@ -89,7 +90,7 @@
                 <li><a href="gallery.php">Gallery</a></li>
                 <li><a href="notification.php">Notifications</a></li>
                 <li class='current'><a href="payment.php">Payments</a></li>
-                <li><a href="#">Camps</a></li>
+                <li><a href="camps.php">Camps</a></li>
             </ul>
         </div> 
 
